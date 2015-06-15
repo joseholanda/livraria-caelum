@@ -1,0 +1,26 @@
+package br.com.caelum.estoque.rmi;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.Map;
+
+public class EstoqueService extends UnicastRemoteObject {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Map<String, ItemEstoque> repositorio = new HashMap<>();
+	
+	protected EstoqueService() throws RemoteException {
+		repositorio.put("ARQ", new ItemEstoque("ARQ", 5));
+		repositorio.put("ARQ", new ItemEstoque("SOA", 2));
+		repositorio.put("ARQ", new ItemEstoque("TDD", 3));
+		repositorio.put("ARQ", new ItemEstoque("RES", 4));
+		repositorio.put("ARQ", new ItemEstoque("LOG", 3));
+		repositorio.put("ARQ", new ItemEstoque("WEB", 4));
+	}
+
+}

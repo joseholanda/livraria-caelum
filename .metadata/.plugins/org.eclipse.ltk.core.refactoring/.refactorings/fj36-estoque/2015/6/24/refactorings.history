@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;fj36-livraria/src/br.com.caelum.estoque.rmi&apos;&#x0A;- Original project: &apos;fj36-estoque&apos;&#x0A;- Destination element: &apos;fj36-livraria/src/br.com.caelum.estoque.rmi&apos;&#x0A;- Original elements:&#x0A;     br.com.caelum.estoque.rmi.EstoqueRmi.java&#x0A;     br.com.caelum.estoque.rmi.ItemEstoque.java" description="Copy compilation units" destination="=fj36-livraria/src&lt;br.com.caelum.estoque.rmi" element1="/src&lt;br.com.caelum.estoque.rmi{EstoqueRmi.java" element2="/src&lt;br.com.caelum.estoque.rmi{ItemEstoque.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1433776977679" units="2" version="1.0"/>
+</session>

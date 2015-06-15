@@ -1,0 +1,9 @@
+package br.com.caelum.estoque.cliente;
+
+import java.rmi.Naming;
+
+public class ClienteRmi {
+	public static void main(String[] args) {
+		EstoqueRmi estoque = Naming.lookup("rmi://localhost:1099/estoque");
+	}
+}

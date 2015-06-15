@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=fj36-livraria/src&lt;br.com.caelum.livraria.modelo{Carrinho.java[Carrinho" modifiers="1" timestamp="1433947098000"/>
+<typeInfo handle="=fj36-livraria/src&lt;br.com.caelum.livraria.modelo{Livro.java[Livro" modifiers="1" timestamp="1429912835000"/>
+<typeInfo handle="=fj36-livraria/src&lt;br.com.caelum.livraria.modelo{Pagamento.java[Pagamento" modifiers="1" timestamp="1429912835000"/>
+<typeInfo handle="=fj36-livraria/src&lt;br.com.caelum.livraria.modelo{Transacao.java[Transacao" modifiers="1" timestamp="1429912835000"/>
+<typeInfo handle="=fj36-livraria/src&lt;br.com.caelum.livraria.modelo{ItemCompra.java[ItemCompra" modifiers="1" timestamp="1429912835000"/>
+<typeInfo handle="=fj36-estoque/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;java.io(Serializable.class[Serializable" modifiers="1537" timestamp="1433854787000"/>
+<typeInfo handle="=fj36-estoque/\/usr\/lib\/jvm\/java-8-oracle\/jre\/lib\/rt.jar&lt;java.rmi(Remote.class[Remote" modifiers="1537" timestamp="1433854787000"/>
+</typeInfoHistroy>

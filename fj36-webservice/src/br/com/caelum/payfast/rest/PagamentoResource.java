@@ -1,0 +1,80 @@
+package br.com.caelum.payfast.rest;
+
+import java.math.BigDecimal;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import br.com.caelum.payfast.modelo.Pagamento;
+import br.com.caelum.payfast.modelo.Transacao;
+
+@Path("/pagamentos")
+@Singleton
+public class PagamentoResource {
+	private static Map<Integer, Pagamento> repositorio = new HashMap<>();
+	private static Integer idPagamento = 1;
+
+	@PostConstruct
+	private void pagamentoResource() {
+		Pagamento pagamento = new Pagamento();
+		pagamento.setId(idPagamento++);
+		pagamento.setValor(BigDecimal.TEN);
+		pagamento.comStatusCriado();
+		repositorio.put(pagamento.getId(), pagamento);
+	}
+
+	@GET
+	@Path("/{id}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public Pagamento buscaPagamento(@PathParam("id") Integer id) {
+		return repositorio.get(id);
+	}
+	
+	@POST
+	@Consumes({MediaType.APPLICATION_JSON})
+	public Response criarPagamento(Transacao transacao) throws URISyntaxException {
+		Pagamento pagamento = new Pagamento();
+		pagamento.setId(idPagamento++);
+		pagamento.setValor(transacao.getValor());
+		pagamento.comStatusCriado();
+		
+		repositorio.put(pagamento.getId(), pagamento);
+		System.out.println("Pagamento criado " + pagamento);
+		
+		URI uri = new URI("/pagamentos/" + pagamento.getId());
+		return Response.created(uri).entity(pagamento).type(MediaType.APPLICATION_JSON).build();
+	}
+	
+	@PUT
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Pagamento confirmarPagamento(@PathParam("id") Integer pagamentoId) {
+		Pagamento pagamento = repositorio.get(pagamentoId);
+		pagamento.comStatusConfirmado();
+		System.out.println("Pagamento confirmado: " + pagamento);
+		return pagamento;
+	}
+	
+	@Patch
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Pagamento cancelarPagamento(@PathParam("id") Integer pagamentoId) {
+		Pagamento pagamento = repositorio.get(pagamentoId);
+		pagamento.comStatusCancelado();
+		System.out.println("Pagamento cancelado: "+ pagamento);
+		return pagamento;
+	}
+}

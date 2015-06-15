@@ -1,0 +1,11 @@
+package br.com.caelum.estoque.main;
+
+import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
+
+public class RegistraERodaService {
+	public static void main(String[] args) {
+		LocateRegistry.createRegistry(1099);
+		Naming.rebind("/estoque", new EstoqueService());
+	}
+}
