@@ -7,16 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XStreamAlias("itemCompra")
 public class ItemCompra implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue @XmlTransient
 	private Integer id;
 	private Formato formato;
 	private Integer quantidade;
+	@XmlTransient
 	private Integer quantidadeEstoque;
 	
 	@ManyToOne

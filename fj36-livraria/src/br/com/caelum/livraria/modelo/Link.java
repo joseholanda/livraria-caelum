@@ -2,6 +2,9 @@ package br.com.caelum.livraria.modelo;
 
 import java.io.Serializable;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("link")
 public class Link implements Serializable {
 
 	private static final long serialVersionUID = 1L;

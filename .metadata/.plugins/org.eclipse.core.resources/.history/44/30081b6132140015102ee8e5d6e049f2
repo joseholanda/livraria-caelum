@@ -1,0 +1,33 @@
+package br.com.caelum.livraria.jaxb;
+
+import java.io.StringWriter;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import br.com.caelum.livraria.modelo.Pedido;
+
+
+public class SerializadorXmlXtream {
+
+	public String toXml(Pedido pedido) {
+		try {
+			
+			XStream stream = new XStream(new DomDriver());
+			stream.alias("pedido", Pedido.class);
+			
+			StringWriter writer = new StringWriter();
+			Marshaller marshaller = JAXBContext.newInstance(Pedido.class).createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			marshaller.marshal(pedido, writer);
+			return writer.toString();
+		} catch (JAXBException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+}

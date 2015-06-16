@@ -13,8 +13,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XStreamAlias("pedido")
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -26,6 +36,8 @@ public class Pedido implements Serializable {
 	private Calendar data;
 	
 	@OneToMany(cascade=CascadeType.PERSIST)
+	@XmlElementWrapper(name="itens")
+	@XmlElement(name="item")
 	private Set<ItemCompra> itens;
 
 	@OneToOne(cascade=CascadeType.PERSIST)
