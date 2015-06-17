@@ -1,0 +1,19 @@
+package br.com.caelum.camel;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+
+public class TestePooling {
+	public static void main(String[] args) throws Exception {
+		CamelContext c = new DefaultCamelContext();
+		c.addRoutes( new RouteBuilder() {
+
+			@Override
+			public void configure() throws Exception {
+				from("http://localhost:8088/fj36-livraria/loja/livros/mais-vendidos").delay(1000);
+			}
+			
+		});
+	}
+}
