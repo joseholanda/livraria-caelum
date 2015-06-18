@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.4-b01. --><xs:schema xmlns:tns="http://caelum.com.br/estoquews/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://caelum.com.br/estoquews/v1">
+
+<xs:element name="ItensPeloCodigo" type="tns:ItensPeloCodigo"></xs:element>
+
+<xs:element name="ItensPeloCodigoResponse" type="tns:ItensPeloCodigoResponse"></xs:element>
+
+<xs:complexType name="ItensPeloCodigo">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ItensPeloCodigoResponse">
+<xs:sequence>
+<xs:element name="ItemEstoque" type="tns:itemEstoque" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="itemEstoque">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="quantidade" type="xs:int" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
